@@ -1,6 +1,36 @@
 # Hosting many NGO websites from one GitHub account
 
-Short answer: **yes.** One GitHub account can host many separate websites for free, because
+## Current deployment (live)
+
+| What | Value |
+| --- | --- |
+| GitHub account | `MW-NGO` (personal account) |
+| Repository | `MW-NGO/MW-NGO.github.io` — public, branch `main` |
+| Pages type | **User site** (the special `<account>.github.io` repository) |
+| Public URL | **https://mw-ngo.github.io/** |
+| Team sign-in | **https://mw-ngo.github.io/admin.html** |
+| Pages source | Deploy from a branch → `main` → `/ (root)` |
+
+Because this account's user-site repository is already taken by SYLI, the site sits at the root
+address. Future NGO sites can be added in either of two ways:
+
+1. **A folder in this repository** — put the next site in `mangochi/`, `lilongwe/`, etc. It will
+   appear at `https://mw-ngo.github.io/mangochi/`. One repository to push, one deployment to wait
+   for, one backup. Simplest while one person maintains everything.
+2. **A separate repository per NGO** — e.g. `MW-NGO/mangochi-youth`. It appears at
+   `https://mw-ngo.github.io/mangochi-youth/`. Best when an NGO should later take the repository
+   with them, or wants its own custom domain.
+
+If the collection grows, the cleanest end state is to move this site into a `salima/` folder and
+make the root a small hub page linking to each NGO. Nothing else needs to change: all links in the
+site are relative.
+
+**To publish an update to SYLI:** commit in the site folder and push to `main`. Pages rebuilds
+automatically in under a minute.
+
+---
+
+Short answer to the general question: **yes.** One GitHub account can host many separate websites for free, because
 GitHub Pages is enabled **per repository**, and a free account can have unlimited public
 repositories.
 
@@ -155,6 +185,8 @@ For small NGO sites with a handful of photos and low traffic, these limits are g
 | Shared design, one maintainer, many sites | Monorepo + Netlify/Cloudflare projects |
 | An ongoing programme with helpers | GitHub Organisation + one repo per NGO |
 
-For the Salima site specifically: **one public repository, Pages from `main` / root**, with a custom
-domain later if the organisation wants one. That is the simplest thing that can survive a change of
-volunteer.
+For the Salima site specifically: it already runs as the **user site** of the `MW-NGO` account —
+one public repository, `MW-NGO/MW-NGO.github.io`, Pages from `main` / root, at
+<https://mw-ngo.github.io/>. Add future NGOs as folders in that repository or as separate
+repositories, and point a custom domain at this one when the organisation wants it. That is the
+simplest thing that can survive a change of volunteer.

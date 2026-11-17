@@ -6,11 +6,22 @@ community organisation in Salima, Malawi.
 It is plain HTML, CSS and JavaScript. No build step, no framework, no monthly bill. You can open
 it on a laptop, put it on GitHub Pages, or drag the folder onto Netlify.
 
-There is also an optional free backend so the team can add projects, members and stories from a
-phone without touching code — see **[SUPABASE.md](SUPABASE.md)**. Until it is connected, the site
-runs entirely from the files in this folder.
+There is also a free backend so the team can add projects, members and stories from a phone
+without touching code — see **[SUPABASE.md](SUPABASE.md)**. If the backend is ever unreachable,
+the site quietly falls back to the content files in this folder.
 
 > **Together we lead, together we change Salima.**
+
+## Live site
+
+| What | Address |
+| --- | --- |
+| Public website | **https://mw-ngo.github.io/** |
+| Team sign-in (content studio) | **https://mw-ngo.github.io/admin.html** |
+| Source repository | https://github.com/MW-NGO/MW-NGO.github.io |
+| Content database | Supabase project `syli-website` (organisation `MW-NGO`) |
+
+Deployment details and how to add future NGO sites are in **[HOSTING.md](HOSTING.md)**.
 
 ---
 
@@ -96,15 +107,19 @@ exactly as it did before the backend existed.
 
 ### With Supabase — `admin.html`
 
-1. Follow **§1 of [SUPABASE.md](SUPABASE.md)** once: create the project, run
-   `supabase/schema.sql` and `supabase/seed.sql`, create an account per editor, paste the URL and
-   anon key into `js/config.js`.
-2. Open `/admin.html`, sign in, and use the **Projects**, **Team** and **Stories** tabs.
+It is already set up and live at **https://mw-ngo.github.io/admin.html**.
+The first editor account is `alumtech9@gmail.com`; the password is kept out of this repository.
+
+1. Open `/admin.html` and sign in.
+2. Use the **Projects**, **Team** and **Stories** tabs.
 3. For each item: fill in the fields, upload photos (resized automatically), choose whether it is
    **featured** and **published**, then **Save**.
 
 That is the whole workflow. No Git, no exports, no rebuild. Publishing a hidden item is just
 ticking “Show on the public site”.
+
+To add another editor, follow **§1c of [SUPABASE.md](SUPABASE.md)** (Authentication → Users →
+Add user). There is no public sign-up.
 
 > The anon key in `js/config.js` is meant to be public; row-level security limits it to reading
 > published rows. **Never** put the `service_role` key in the website.

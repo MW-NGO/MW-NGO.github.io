@@ -17,6 +17,24 @@ visitor's phone ──> public pages ─────┘  (read-only, published r
 If Supabase cannot be reached, the public site quietly falls back to the bundled content in
 `js/data.js`. A paused project or a bad connection never leaves you with a blank website.
 
+## Status: already set up
+
+| What | Value |
+| --- | --- |
+| Supabase organisation | `MW-NGO` |
+| Project name | `syli-website` |
+| Project URL | `https://hpvceqfmapmydhczubod.supabase.co` |
+| Browser key in `js/config.js` | publishable key (`sb_publishable_…`) — safe to commit |
+| Team sign-in | https://mw-ngo.github.io/admin.html |
+
+The sections below are the record of how it was built and how to rebuild or extend it. You do
+**not** need to repeat them. Keep the database password and any `service_role` / secret key in a
+private place (not in this repository).
+
+> **Note:** Supabase's new projects show a **publishable key** instead of the old `anon` JWT.
+> It plays exactly the same role — it is the public browser key, protected by the row-level
+> security rules. If your dashboard still shows the legacy keys, the `anon public` key works too.
+
 ---
 
 ## 1. One-time setup (about 10 minutes)
